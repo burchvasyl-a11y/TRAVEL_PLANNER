@@ -1,17 +1,17 @@
-﻿<Window x:Class="PRACTICE2.MainWindow"
+﻿<Window x:Class="PRACTICE2.Views.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="Мій WPF застосунок"
+		xmlns:views="clr-namespace:PRACTICE2.Views"
         Height="450" Width="800"
         MinHeight="300" MinWidth="500">
 
     <DockPanel>
 
         <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Background="DarkBlue">
-            <Button Content="Головна" FontStyle="Italic" Width="100" Margin="5" Background="White"/>
-            <Button Content="Країни" Width="100" Margin="5" Background="White"/>
-            <Button Content="Міста" Width="100" Margin="5" Background="White"/>
-            <Button Content="Налаштування" Width="100" Margin="5" Background="White"/>
+            <Button Content="Головна" FontStyle="Italic" Width="100" Margin="5" Background="White" Click="Main_Click"/>
+            <Button Content="Країни" Width="100" Margin="5" Background="White" Click="Countries_Click"/>
+            <Button Content="Міста" Width="100" Margin="5" Background="White" Click="Cities_Click"/>
+            <Button Content="Налаштування" Width="110" Background="White" Click="Settings_Click"/>
         </StackPanel>
 
         <Grid Background="Beige">
@@ -28,19 +28,18 @@
 
             <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="10">
                 <Label Content="Ел. пошта:" Width="100"/>
-                <TextBox x:Name="nameBox" Width="200"/>
+                <TextBox x:Name="NameBox" Width="200"/>
             </StackPanel>
 
             <StackPanel Grid.Row="2" Orientation="Horizontal" Margin="10">
                 <Label Content="Пароль:" Width="100"/>
-                <TextBox x:Name="ageBox" Width="200"/>
+                <TextBox x:Name="AgeBox" Width="200"/>
             </StackPanel>
 
             <StackPanel Grid.Row="3" Orientation="Horizontal" Margin="10,10,10,150">
-                <Button Content="Показати" Width="100" Margin="5" Background="LightSkyBlue" Click="Show_Click" Height="30"/>
-                <Button Content="Очистити" Width="100" Margin="5" Background="LightSkyBlue" Click="Clear_Click" Height="30"/>
-                <Button Content="Вихід" Width="100" Margin="5" Background="LightSkyBlue" Click="Exit_Click" Height="30
-                        "/>
+                <Button Content="Показати" Width="100" Margin="5" Background="LightSkyBlue" Click="Show_Click" Height="40"/>
+                <Button Content="Очистити" Width="100" Margin="5" Background="LightSkyBlue" Click="Clear_Click" Height="40"/>
+                <Button Content="Вихід" Width="100" Margin="5" Background="LightSkyBlue" Click="Exit_Click" Height="30"Height="40"/>
             </StackPanel>
 
         </Grid>
