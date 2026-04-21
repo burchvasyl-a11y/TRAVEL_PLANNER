@@ -1,0 +1,105 @@
+<Window x:Class="TRAVEL_PLANNER.Views.SettingsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="TRAVEL PLANNER"
+        Width="1280"
+        Height="760"
+        MinWidth="1100"
+        MinHeight="700"
+        WindowStartupLocation="CenterScreen"
+        Style="{StaticResource BaseWindowStyle}">
+    <Border Background="{DynamicResource PageOverlayBrush}">
+    <DockPanel>
+        <Border DockPanel.Dock="Top"
+                Background="{StaticResource PrimaryBrush}"
+                Padding="24,16">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Text="TRAVEL PLANNER"
+                           FontSize="22"
+                           FontWeight="Bold"
+                           Foreground="White"
+                           VerticalAlignment="Center"/>
+
+                <StackPanel Grid.Column="1"
+                            Orientation="Horizontal"
+                            HorizontalAlignment="Center">
+                    <Button Content="Головна"
+                            Style="{StaticResource NavButtonStyle}"
+                            Click="Main_Click"/>
+                    <Button Content="Країни"
+                            Style="{StaticResource NavButtonStyle}"
+                            Click="Countries_Click"/>
+                    <Button Content="Міста"
+                            Style="{StaticResource NavButtonStyle}"
+                            Click="Cities_Click"/>
+                    <Button Content="Налаштування"
+                            Style="{StaticResource NavButtonStyle}"
+                            FontWeight="Bold"
+                            Click="Settings_Click"/>
+                </StackPanel>
+            </Grid>
+        </Border>
+
+        <Grid Margin="36">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1.1*"/>
+                <ColumnDefinition Width="0.9*"/>
+            </Grid.ColumnDefinitions>
+
+            <Border Style="{StaticResource CardBorderStyle}">
+                <StackPanel>
+                    <TextBlock Text="Налаштування"
+                               Style="{StaticResource TitleTextStyle}"
+                               FontSize="32"/>
+                    <TextBlock Text="Оберіть тему інтерфейсу та керуйте авторизацією."
+                               Style="{StaticResource SubtitleTextStyle}"
+                               Margin="0,12,0,0"/>
+
+                    <TextBlock Margin="0,28,0,0"
+                               FontWeight="SemiBold"
+                               Text="Тема"/>
+                    <RadioButton x:Name="LightThemeRadio"
+                                 Margin="0,14,0,0"
+                                 Content="Світла тема"
+                                 GroupName="ThemeGroup"/>
+                    <RadioButton x:Name="DarkThemeRadio"
+                                 Margin="0,12,0,0"
+                                 Content="Темна тема"
+                                 GroupName="ThemeGroup"/>
+
+                    <Button Margin="0,28,0,0"
+                            Height="46"
+                            Style="{StaticResource PrimaryButtonStyle}"
+                            Click="ApplyTheme_Click"
+                            Content="Застосувати тему"/>
+                </StackPanel>
+            </Border>
+
+            <Border Grid.Column="1"
+                    Margin="20,0,0,0"
+                    Style="{StaticResource CardBorderStyle}">
+                <StackPanel>
+                    <TextBlock Text="Профіль"
+                               Style="{StaticResource TitleTextStyle}"
+                               FontSize="28"/>
+                    <TextBlock x:Name="CurrentUserText"
+                               Margin="0,16,0,0"
+                               FontSize="16"
+                               TextWrapping="Wrap"/>
+
+                    <Button Margin="0,28,0,0"
+                            Height="46"
+                            Style="{StaticResource SecondaryButtonStyle}"
+                            Click="SignOut_Click"
+                            Content="Вийти з акаунта"/>
+                </StackPanel>
+            </Border>
+        </Grid>
+    </DockPanel>
+    </Border>
+</Window>

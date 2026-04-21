@@ -1,0 +1,337 @@
+﻿{
+  "countries": [
+    {
+      "name": "Україна",
+      "info": "",
+      "map": "Ukraine.png",
+      "places": [
+        {
+          "place": "Хотинська фортеця",
+          "description": null,
+          "image": "Khotyn.jpg",
+          "category": "Історичні пам'ятки"
+        },
+        {
+          "place": "Шацькі озера",
+          "description": null,
+          "image": "Shatsk.jpg",
+          "category": "Відпочинок на природі"
+        },
+        {
+          "place": "Олешківські піски",
+          "description": "Найбільша пустеля Європи з великою різноманітністю традиційних мешканців пустелі",
+          "image": "Oleshkivski.jpg",
+          "category": "Активний туризм"
+        },
+        {
+          "place": "Карпатський національний парк",
+          "description": null,
+          "image": "Carpathians.jpg",
+          "category": "Активний туризм"
+        },
+        {
+          "place": "Замок Любарта",
+          "description": null,
+          "image": "Lubarts.jpg",
+          "category": "Історичні пам'ятки"
+        }
+      ]
+    },
+    {
+      "name": "Румунія",
+      "info": "",
+      "map": "Romania.png",
+      "places": [
+        {
+          "place": "Замок Бран",
+          "description": "Старовинний замок XIV ст., колишня королівська резиденція",
+          "image": "Bran.jpg",
+          "category": "Історичні пам'ятки"
+        },
+        {
+          "place": "Замок Пелеш",
+          "description": "Резиденція короля Кароля I, побудована в стилі неоренесансу",
+          "image": "Peles.jpg",
+          "category": "Історичні пам'ятки"
+        },
+        {
+          "place": "Соляна копальня в Турді",
+          "description": "Справжнє міні-місто під землею з амфітеатром, колесом огляду і гольфом",
+          "image": "Turda.jpg",
+          "category": "Активний туризм"
+        },
+        {
+          "place": "Монастир Воронец",
+          "description": "Унікальний монастир кінця XV ст. повністю розписаний фресками",
+          "image": "Voronet.jpg",
+          "category": "Історичні пам'ятки"
+        },
+        {
+          "place": "Історичний центр м. Сібіу",
+          "description": null,
+          "image": "Sibiu.jpg",
+          "category": "Історичні пам'ятки"
+        }
+      ]
+    },
+    {
+      "name": "Словенія",
+      "info": "",
+      "map": "Slovenia.png",
+      "places": [
+        {
+          "place": "Озеро Блед",
+          "description": null,
+          "image": "Bled.jpg",
+          "category": "Відпочинок на природі"
+        },
+        {
+          "place": "Гора Триглав",
+          "description": null,
+          "image": "Triglav.jpg",
+          "category": "Активний туризм"
+        },
+        {
+          "place": "Пекельна печера",
+          "description": null,
+          "image": "Pekel.jpg",
+          "category": "Активний туризм"
+        },
+        {
+          "place": "Крижна Яма",
+          "description": null,
+          "image": "Krizhna.jpg",
+          "category": "Активний туризм"
+        },
+        {
+          "place": "Цельський замок",
+          "description": null,
+          "image": "Celje.jpg",
+          "category": "Історичні пам'ятки"
+        }
+      ]
+    },
+    {
+      "name": "Італія",
+      "info": "",
+      "map": "Italy.png",
+      "places": [
+        {
+          "place": "Пізанська вежа",
+          "description": null,
+          "image": "Pisa.jpg",
+          "category": "Історичні пам'ятки"
+        },
+        {
+          "place": "Вулкан Етна",
+          "description": null,
+          "image": "Etna.jpg",
+          "category": "Активний туризм"
+        },
+        {
+          "place": "Озеро Комо",
+          "description": null,
+          "image": "Como.jpg",
+          "category": "Відпочинок на природі"
+        },
+        {
+          "place": "Амальфітанське узбережжя",
+          "description": null,
+          "image": "Amalfi.jpg",
+          "category": "Відпочинок на морі"
+        },
+        {
+          "place": "Нураги Сардинії",
+          "description": null,
+          "image": "Nuraghe.jpg",
+          "category": "Історичні пам'ятки"
+        }
+      ]
+    },
+    {
+      "name": "Мавританія",
+      "info": "",
+      "map": "Mauritania.png",
+      "places": [
+        {
+          "place": "Структура Рішат",
+          "description": null,
+          "image": "Richat.jpg",
+          "category": "Активний туризм"
+        },
+        {
+          "place": "Шингетті",
+          "description": "Стародавній торговий і науковий центр посеред мальовничих каньйонів",
+          "image": "Chinguetti.jpg",
+          "category": "Історичні пам'ятки"
+        },
+        {
+          "place": "Аргінська затока",
+          "description": null,
+          "image": "Arguin.jpg",
+          "category": "Відпочинок на морі"
+        },
+        {
+          "place": "Залізнорудні поїзди",
+          "description": null,
+          "image": "Train.jpg",
+          "category": "Активний туризм"
+        },
+        {
+          "place": "Уалата",
+          "description": "Середньовічне торгове місто з унікальними візерунками",
+          "image": "Oualata.jpg",
+          "category": "Історичні пам'ятки"
+        }
+      ]
+    },
+    {
+      "name": "Йорданія",
+      "info": "",
+      "map": "Jordan.png",
+      "places": [
+        {
+          "place": "Амманська цитадель",
+          "description": null,
+          "image": "Amman_Citadel.jpg",
+          "category": "Історичні пам'ятки"
+        },
+        {
+          "place": "Римський Амман",
+          "description": null,
+          "image": "Roman_Amman.jpg",
+          "category": "Історичні пам'ятки"
+        },
+        {
+          "place": "Петра",
+          "description": "Руїни міста класичної епохи, центр стародавнього царства",
+          "image": "Petra.jpg",
+          "category": "Історичні пам'ятки"
+        },
+        {
+          "place": "Пустеля Ваді Рум",
+          "description": "Заповідник з унікальними скельними формаціями та червоним піском",
+          "image": "Wadi_Rum.jpg",
+          "category": "Активний туризм"
+        },
+        {
+          "place": "Акаба",
+          "description": null,
+          "image": "Aqaba.jpg",
+          "category": "Відпочинок на морі"
+        }
+      ]
+    },
+    {
+      "name": "Австралія",
+      "info": "",
+      "map": "Australia.png",
+      "places": [
+        {
+          "place": "Моноліт Улуру",
+          "description": null,
+          "image": "Uluru.jpg",
+          "category": "Активний туризм"
+        },
+        {
+          "place": "Великий бар'єрний риф",
+          "description": null,
+          "image": "Barrier_Reef.jpg",
+          "category": "Відпочинок на морі"
+        },
+        {
+          "place": "Заповідник Налларбор",
+          "description": "Плоске висушене плато без дерев на сотні кілометрів",
+          "image": "Nullarbor.jpg",
+          "category": "Активний туризм"
+        },
+        {
+          "place": "Південно-західний нац. парк",
+          "description": null,
+          "image": "Southwest.jpg",
+          "category": "Активний туризм"
+        },
+        {
+          "place": "Музей золотошукачів",
+          "description": null,
+          "image": "Goldfields.jpg",
+          "category": "Історичні пам'ятки"
+        }
+      ]
+    },
+    {
+      "name": "Перу",
+      "info": "",
+      "map": "Peru.png",
+      "places": [
+        {
+          "place": "Мачу-Пікчу",
+          "description": "Руїни легендарного міста інків XV ст.",
+          "image": "Machu_Picchu.jpg",
+          "category": "Історичні пам'ятки"
+        },
+        {
+          "place": "Озеро Тітікака",
+          "description": null,
+          "image": "Titicaca.jpg",
+          "category": "Відпочинок на природі"
+        },
+        {
+          "place": "Лінії Наска",
+          "description": null,
+          "image": "Nazca.jpg",
+          "category": "Історичні пам'ятки"
+        },
+        {
+          "place": "Історичний центр м. Кахамарка",
+          "description": null,
+          "image": "Cajamarca.jpg",
+          "category": "Історичні пам'ятки"
+        },
+        {
+          "place": "Пакая-Самірія",
+          "description": "Тропічний ліс з багатою флорою і фауною",
+          "image": "Pacaya_Samiria.jpg",
+          "category": "Відпочинок на природі"
+        }
+      ]
+    },
+    {
+      "name": "Сенегал",
+      "info": "",
+      "map": "Senegal.png",
+      "places": [
+        {
+          "place": "Озеро Ретба",
+          "description": "",
+          "image": "Retba.jpg",
+          "category": "Відпочинок на природі"
+        },
+        {
+          "place": "Дельта річки Салум",
+          "description": null,
+          "image": "Saloum.jpg",
+          "category": "Відпочинок на природі"
+        },
+        {
+          "place": "Велика мечеть Туби",
+          "description": null,
+          "image": "Touba.jpg",
+          "category": "Історичні пам'ятки"
+        },
+        {
+          "place": "Острів Сент-Луїс",
+          "description": null,
+          "image": "Saint_Louis.jpg",
+          "category": "Історичні пам'ятки"
+        },
+        {
+          "place": "Національний парк Ніоколо-Коба",
+          "description": "Тропічний ліс з багатою флорою і фауною",
+          "image": "Niokolo_Koba.jpg",
+          "category": "Відпочинок на природі"
+        }
+      ]
+    }
+  ]
+}
