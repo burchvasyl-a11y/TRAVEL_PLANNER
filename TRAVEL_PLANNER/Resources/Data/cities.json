@@ -3,35 +3,35 @@
     {
       "name": "Львів",
       "info": "",
-      "view": "Lviv.png",
+      "view": "Lviv.jpg",
       "country": "Україна",
-      "places": [
+      "attractions": [
         {
-          "place": "Площа Ринок",
+          "attraction": "Площа Ринок",
           "description": null,
-          "image": "Rynok_Square.jpg",
+          "image": "Rynok_Square.jpeg",
           "category": "💓Серце міста"
         },
         {
-          "place": "Вірменська вулиця",
+          "attraction": "Вірменська вулиця",
           "description": null,
           "image": "Virmenska.jpg",
           "category": "Пам'ятка архітектури"
         },
         {
-          "place": "Стрийський парк",
+          "attraction": "Стрийський парк",
           "description": null,
           "image": "Stryiskyi_Park.jpg",
           "category": "Парки та сквери"
         },
         {
-          "place": "Костел св. Ольги та Єлизавети",
+          "attraction": "Костел св. Ольги та Єлизавети",
           "description": null,
           "image": "StOlhaElizabeths.jpg",
           "category": "Релігійна споруда"
         },
         {
-          "place": "Оперний театр ім. С. Крушельницької",
+          "attraction": "Оперний театр ім. С. Крушельницької",
           "description": null,
           "image": "Opera.jpg",
           "category": "Культурна спадщина"
@@ -41,73 +41,79 @@
     {
       "name": "Київ",
       "info": "",
-      "view": "Kyiv.png",
+      "view": "Kyiv.jpg",
       "country": "Україна",
-      "places": [
+      "attractions": [
         {
-          "place": "Софійський собор",
+          "attraction": "Софійський собор",
           "description": "",
           "image": "Sophia_Church.jpg",
           "category": "Релігійна споруда"
         },
         {
-          "place": "Андріївський узвіз",
+          "attraction": "Андріївський узвіз",
           "description": "",
-          "image": "Andiivskyi_Uzviz.jpg",
+          "image": "Andriivskyi_Uzviz.jpg",
           "category": "Пам'ятка архітектури"
         },
         {
-          "place": "Будинок із химерами",
+          "attraction": "Будинок із химерами",
           "description": "",
           "image": "Khymery.jpg",
           "category": "Пам'ятка архітектури"
         },
         {
-          "place": "Майдан Незалежності",
+          "attraction": "Майдан Незалежності",
           "description": "",
           "image": "Maidan.jpg",
           "category": "💓Серце міста"
         },
         {
-          "place": "Києво-Печерська Лавра",
+          "attraction": "Києво-Печерська Лавра",
           "description": null,
           "image": "Lavra.jpg",
           "category": "Релігійна споруда"
+        },
+        {
+          "attraction": "Золоті ворота",
+          "description": null,
+          "image": "Golden_Gate.jpg",
+          "category": "Історична пам'ятка"
         }
       ]
     },
     {
       "name": "Ужгород",
       "info": "",
-      "view": "Uzhhorod.png",
+      "view": "Uzhhorod.jpg",
       "country": "Україна",
-      "places": [
+      "attractions": [
         {
-          "place": "Міні-скульптури",
+          "attraction": "Міні-скульптури",
           "description": null,
           "image": "Statuettes.jpg",
           "category": "Культурна спадщина"
         },
         {
-          "place": "Ужгородський замок",
+          "attraction": "Ужгородський замок",
           "description": null,
-          "image": "UzhCastle.jpg",
+          "image": "UzhCastle.jpeg",
           "category": "Історична пам'ятка"
         },
         {
-          "place": "Греко-католицький Катедральний Собор",
+          "attraction": "Греко-католицький Катедральний Собор",
           "description": null,
           "image": "GrekoCatholic.jpg",
           "category": "Релігійна споруда"
         },
         {
-          "place": "Горянська ротонда",
+          "attraction": "Горянська ротонда",
           "description": null,
           "image": "Horyany.jpg",
           "category": "Релігійна споруда"
         },
         {
-          "place": "Старий кар'єр",
+          "attraction": "Старий кар'єр",
           "description": null,
           "image": "Carrier.jpg",
           "category": "Парки та сквери"
@@ -115,37 +121,75 @@
       ]
     },
     {
+      "name": "Харків",
+      "info": "",
+      "view": "Kharkiv.jpg",
+      "country": "Україна",
+      "attractions": [
+        {
+          "attraction": "Держпром",
+          "description": null,
+          "image": "Derzhprom.jpg",
+          "category": "Пам'ятка архітектури"
+        },
+        {
+          "attraction": "Каскадні сходи",
+          "description": null,
+          "image": "Kaskad.jpg",
+          "category": "Пам'ятка архітектури"
+        },
+        {
+          "attraction": "Благовіщенський кафедральний собор",
+          "description": null,
+          "image": "Blahovishchensky.jpg",
+          "category": "Релігійна споруда"
+        },
+        {
+          "attraction": "Центральний парк культури та відпочинку",
+          "description": null,
+          "image": "Horkoho_Park.jpg",
+          "category": "Парки та сквери"
+        },
+        {
+          "attraction": "Площа Свободи",
+          "description": null,
+          "image": "Svobody.jpg",
+          "category": "💓Серце міста"
+        }
+      ]
+    },
+    {
       "name": "Бухарест",
       "info": "",
-      "view": "Bucharest.png",
+      "view": "Bucharest.jpg",
       "country": "Румунія",
-      "places": [
+      "attractions": [
         {
-          "place": "Монастирська церква Ставрополіс",
+          "attraction": "Монастирська церква Ставрополіс",
           "description": null,
           "image": "Stavropoleos.jpg",
           "category": "Релігійна споруда"
         },
         {
-          "place": "Палац Моґошоая",
+          "attraction": "Палац Моґошоая",
           "description": null,
           "image": "Mogosoaia.jpg",
           "category": "Історична пам'ятка"
         },
         {
-          "place": "Площа Конституції",
+          "attraction": "Площа Конституції",
           "description": null,
           "image": "Constitutiei.jpg",
           "category": "💓Серце міста"
         },
         {
-          "place": "Парк Короля Михая І",
+          "attraction": "Парк Короля Михая І",
           "description": null,
           "image": "KingMihai_Park.jpg",
           "category": "Парки та сквери"
         },
         {
-          "place": "Національний музей мистецтв Румунії",
+          "attraction": "Національний музей мистецтв Румунії",
           "description": null,
           "image": "Muzeul_National.jpg",
           "category": "Культурна спадщина"
@@ -155,35 +199,35 @@
     {
       "name": "Рим",
       "info": "",
-      "view": "Rome.png",
+      "view": "Rome.jpg",
       "country": "Італія",
-      "places": [
+      "attractions": [
         {
-          "place": "Колізей",
+          "attraction": "Колізей",
           "description": null,
           "image": "Colosseum.jpg",
           "category": "Історична пам'ятка"
         },
         {
-          "place": "Фонтан ді Треві",
+          "attraction": "Фонтан ді Треві",
           "description": "Стародавній торговий і науковий центр посеред мальовничих каньйонів",
           "image": "Trevi_Fountain.jpg",
           "category": "Пам'ятка архітектури"
         },
         {
-          "place": "Базиліка Святого Павла за Мурами",
+          "attraction": "Базиліка Святого Павла за Мурами",
           "description": null,
           "image": "SanPaolo_Basilica.jpg",
           "category": "Релігійна споруда"
         },
         {
-          "place": "П'яцца Навона",
+          "attraction": "П'яцца Навона",
           "description": null,
-          "image": "Piazza_Navona.jpg",
+          "image": "Piazza_Navona.jpeg",
           "category": "💓Серце міста"
         },
         {
-          "place": "Пантеон",
+          "attraction": "Пантеон",
           "description": "Середньовічне торгове місто з унікальними візерунками",
           "image": "Pantheon.jpg",
           "category": "Історична пам'ятка"
@@ -193,35 +237,35 @@
     {
       "name": "Венеція",
       "info": "",
-      "view": "Venice.png",
+      "view": "Venice.jpg",
       "country": "Італія",
-      "places": [
+      "attractions": [
         {
-          "place": "Площа святого Марка",
+          "attraction": "Площа святого Марка",
           "description": null,
-          "image": "SanMarco.jpg",
+          "image": "SanMarco.jpeg",
           "category": "💓Серце міста"
         },
         {
-          "place": "Палац дожів",
+          "attraction": "Палац дожів",
           "description": null,
           "image": "Palazzo_Ducale.jpg",
           "category": "Пам'ятка архітектури"
         },
         {
-          "place": "Венеціанські гондоли",
+          "attraction": "Венеціанські гондоли",
           "description": "Руїни міста класичної епохи, центр стародавнього царства",
           "image": "Gondolas.jpg",
           "category": "Культурна спадщина"
         },
         {
-          "place": "Муранське скло",
+          "attraction": "Муранське скло",
           "description": "Заповідник з унікальними скельними формаціями та червоним піском",
           "image": "Murano_Glass.jpg",
           "category": "Культурна спадщина"
         },
         {
-          "place": "Міст Ріальто",
+          "attraction": "Міст Ріальто",
           "description": null,
           "image": "Rialto.jpg",
           "category": "Пам'ятка архітектури"
@@ -231,37 +275,37 @@
     {
       "name": "Дакар",
       "info": "",
-      "view": "Dakar.png",
+      "view": "Dakar.jpg",
       "country": "Сенегал",
-      "places": [
+      "attractions": [
         {
-          "place": "Монумент африканського відродження",
+          "attraction": "Монумент африканського відродження",
           "description": null,
-          "image": "Resistance_Monument.jpg",
+          "image": "African_Renaissance_Monument.jpg",
           "category": "Активний туризм"
         },
         {
-          "place": "Острів Ґоре",
+          "attraction": "Острів Ґоре",
           "description": "Горезвісний острів неподалік міста, відомий своєю історією рабовласництва та будівлями колоніального періоду",
           "image": "Goree.jpg",
           "category": "Історична пам'ятка"
         },
         {
-          "place": "Музей чорношкірих цивілізацій",
+          "attraction": "Музей чорношкірих цивілізацій",
           "description": "",
           "image": "Black_Civilizations.jpg",
           "category": "Культурна спадщина"
         },
         {
-          "place": "Мечеть божественності",
+          "attraction": "Мечеть божественності",
           "description": null,
           "image": "Divinity_Mosque.jpg",
           "category": "Релігійна споруда"
         },
         {
-          "place": "Ханський зоопарк і ліс",
+          "attraction": "Ханський зоопарк і ліс",
           "description": null,
-          "image": "Hann_Zoo.jpg",
+          "image": "Hann_Zoo.jpeg",
           "category": "Парки та сквери"
         }
       ]

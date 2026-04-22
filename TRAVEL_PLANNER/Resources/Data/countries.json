@@ -34,6 +34,12 @@
           "description": null,
           "image": "Lubarts.jpg",
           "category": "Історичні пам'ятки"
+        },
+        {
+          "place": "Тунель кохання",
+          "description": null,
+          "image": "Kokhannia.jpg",
+          "category": "Відпочинок на природі"
         }
       ]
     },

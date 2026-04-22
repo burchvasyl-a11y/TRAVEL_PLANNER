@@ -60,7 +60,7 @@
                                            Style="{StaticResource TitleTextStyle}"
                                            FontSize="28"/>
 
-                                <TextBlock Margin="0,20,0,0"
+                                <TextBlock Margin="0,22,0,0"
                                            FontWeight="SemiBold"
                                            Text="Обрана країна:"/>
                                 <TextBlock x:Name="CountryNameTextBlock"
@@ -68,16 +68,16 @@
                                            FontSize="18"
                                            FontWeight="SemiBold"/>
 
-                                <TextBlock Margin="0,20,0,0"
+                                <TextBlock Margin="0,18,0,0"
                                            FontWeight="SemiBold"
                                            Text="Оберіть місто зі списку:"/>
                                 <ComboBox x:Name="CityComboBox"
                                           Margin="0,8,0,0"
                                           Height="38"
-                                          DisplayMemberPath="place"
+                                          DisplayMemberPath="name"
                                           SelectionChanged="CityComboBox_SelectionChanged"/>
 
-                                <TextBlock Margin="0,20,0,0"
+                                <TextBlock Margin="0,18,0,0"
                                            FontWeight="SemiBold"
                                            Text="Тривалість подорожі"/>
                                 <Grid>
@@ -103,20 +103,20 @@
                                     </StackPanel>
                                 </Grid>
 
-                                <TextBlock Margin="0,20,0,0"
+                                <TextBlock Margin="0,18,0,0"
                                            FontWeight="SemiBold"
                                            Text="Вид подорожі"/>
-                                <CheckBox x:Name="CheckBoxSea"
+                                <CheckBox x:Name="CheckBoxHeart"
                                           Style="{StaticResource CheckBoxStyle}"
-                                          Content="💓Серце міста"
+                                          Content="Серце міста"
                                           Checked="Filters_Changed"
                                           Unchecked="Filters_Changed"/>
-                                <CheckBox x:Name="CheckBoxNature"
+                                <CheckBox x:Name="CheckBoxPark"
                                           Style="{StaticResource CheckBoxStyle}"
                                           Content="Парки та сквери"
                                           Checked="Filters_Changed"
                                           Unchecked="Filters_Changed"/>
-                                <CheckBox x:Name="CheckBoxActivities"
+                                <CheckBox x:Name="CheckBoxCulture"
                                           Style="{StaticResource CheckBoxStyle}"
                                           Content="Культурна спадщина"
                                           Checked="Filters_Changed"
@@ -126,7 +126,12 @@
                                           Content="Історична пам'ятка"
                                           Checked="Filters_Changed"
                                           Unchecked="Filters_Changed"/>
-                                <CheckBox x:Name="CheckBoxShopping"
+                                <CheckBox x:Name="CheckBoxReligious"
+                                          Style="{StaticResource CheckBoxStyle}"
+                                          Content="Релігійна споруда"
+                                          Checked="Filters_Changed"
+                                          Unchecked="Filters_Changed"/>
+                                <CheckBox x:Name="CheckBoxArchitecture"
                                           Style="{StaticResource CheckBoxStyle}"
                                           Content="Пам'ятка архітектури"
                                           Checked="Filters_Changed"
@@ -169,7 +174,7 @@
                                         CornerRadius="18"
                                         Background="{DynamicResource SecondaryCardBrush}"
                                         Padding="12">
-                                    <Image x:Name="CityMapImage"
+                                    <Image x:Name="CityViewImage"
                                            Stretch="Uniform"/>
                                 </Border>
 
@@ -188,34 +193,59 @@
                             </Grid>
                         </Border>
 
-                        <Border Style="{StaticResource CardBorderStyle}">
-                            <Grid>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="320"/>
-                                    <ColumnDefinition Width="20"/>
-                                    <ColumnDefinition Width="*"/>
-                                </Grid.ColumnDefinitions>
+                        <ItemsControl x:Name="AttractionsItemsControl">
+                            <ItemsControl.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <WrapPanel ItemWidth="300"
+                                               ItemHeight="390"/>
+                                </ItemsPanelTemplate>
+                            </ItemsControl.ItemsPanel>
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <Border Width="280"
+                                            Height="370"
+                                            Margin="0,0,16,16"
+                                            Background="{DynamicResource CardBrush}"
+                                            CornerRadius="18"
+                                            Padding="16">
+                                        <Grid>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="170"/>
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="Auto"/>
+                                                <RowDefinition Height="*"/>
+                                                <RowDefinition Height="Auto"/>
+                                            </Grid.RowDefinitions>
 
-                                <Border Grid.Column="0"
-                                        CornerRadius="18"
-                                        Background="{DynamicResource SecondaryCardBrush}">
-                                    <Image x:Name="SelectedCityImage"
-                                           Stretch="UniformToFill"/>
-                                </Border>
+                                            <Border CornerRadius="14"
+                                                    Background="{DynamicResource SecondaryCardBrush}">
+                                                <Image Source="{Binding PreViewImage}"
+                                                       Stretch="UniformToFill"/>
+                                            </Border>
 
-                                <StackPanel Grid.Column="2">
-                                    <TextBlock FontSize="22"
-                                               FontWeight="SemiBold"
-                                               Text="Деталі міста"/>
-                                    <TextBlock x:Name="SelectedCityCategoryTextBlock"
-                                               Margin="0,12,0,0"
-                                               Foreground="{DynamicResource MutedTextBrush}"/>
-                                    <TextBlock x:Name="SelectedCityDescriptionTextBlock"
-                                               Margin="0,14,0,0"
-                                               TextWrapping="Wrap"/>
-                                </StackPanel>
-                            </Grid>
-                        </Border>
+                                            <TextBlock Grid.Row="1"
+                                                       Margin="0,14,0,0"
+                                                       FontSize="18"
+                                                       FontWeight="SemiBold"
+                                                       TextWrapping="Wrap"
+                                                       Text="{Binding Place}"/>
+                                            <TextBlock Grid.Row="2"
+                                                       Margin="0,8,0,0"
+                                                       Foreground="{DynamicResource MutedTextBrush}"
+                                                       Text="{Binding Category}"/>
+                                            <TextBlock Grid.Row="3"
+                                                       Margin="0,10,0,0"
+                                                       TextWrapping="Wrap"
+                                                       Text="{Binding Description}"/>
+                                            <CheckBox Grid.Row="4"
+                                                      IsChecked="{Binding IsAdded, Mode=TwoWay}"
+                                                      Style="{StaticResource CheckBoxStyle}"
+                                                      Content="Додати до подорожі"/>
+                                        </Grid>
+                                    </Border>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
                     </StackPanel>
                 </ScrollViewer>
             </Grid>

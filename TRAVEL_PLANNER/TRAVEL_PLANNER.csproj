@@ -89,6 +89,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Models\AttractionCardItem.cs" />
+    <Compile Include="Models\City.cs" />
     <Compile Include="Models\Country.cs" />
     <Compile Include="Models\PlaceCardItem.cs" />
     <Compile Include="Models\SavedTrip.cs" />
@@ -291,18 +293,156 @@
     <Resource Include="Resources\Images\countries\rom\Peles.jpg" />
     <Resource Include="Resources\Images\countries\rom\Sibiu.jpg" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Resources\CityViews\" />
-    <Folder Include="Resources\Images\cities\Bucharest\" />
-    <Folder Include="Resources\Images\cities\Kharkiv\" />
-    <Folder Include="Resources\Images\cities\Kyiv\" />
-    <Folder Include="Resources\Images\cities\Lviv\" />
-    <Folder Include="Resources\Images\cities\Rome\" />
-    <Folder Include="Resources\Images\cities\Uzhhorod\" />
-    <Folder Include="Resources\Images\cities\Venice\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Resource Include="Resources\Images\countries\sen\Retba.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\countries\ukr\Kokhannia.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\CityViews\Lviv.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\CityViews\Kyiv.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\CityViews\Uzhhorod.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\CityViews\Bucharest.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\CityViews\Rome.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\CityViews\Venice.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\CityViews\Dakar.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\cities\Dakar\Divinity_Mosque.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\cities\Dakar\African_Renaissance_Monument.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\cities\Dakar\Hann_Zoo.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\cities\Dakar\Black_Civilizations.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\cities\Venice\Palazzo_Ducale.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\cities\Venice\Gondolas.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\cities\Venice\SanMarco.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\cities\Venice\Rialto.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\cities\Venice\Murano_Glass.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\cities\Rome\Colosseum.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\cities\Rome\Pantheon.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\cities\Rome\Piazza_Navona.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\cities\Rome\SanPaolo_Basilica.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\cities\Rome\Trevi_Fountain.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\cities\Bucharest\Stavropoleos.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\cities\Bucharest\Mogosoaia.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\cities\Bucharest\Constitutiei.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\cities\Bucharest\KingMihai_Park.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\cities\Bucharest\Muzeul_National.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\CityViews\Kharkiv.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\cities\Kharkiv\Blahovishchensky.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\cities\Kharkiv\Derzhprom.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\cities\Kharkiv\Kaskad.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\cities\Kharkiv\Horkoho_Park.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\cities\Kharkiv\Svobody.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\cities\Uzhhorod\GrekoCatholic.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\cities\Uzhhorod\UzhCastle.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\cities\Uzhhorod\Horyany.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\cities\Uzhhorod\Carrier.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\cities\Uzhhorod\Statuettes.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\cities\Kyiv\Sophia_Church.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\cities\Kyiv\Andriivskyi_Uzviz.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\cities\Kyiv\Khymery.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\cities\Kyiv\Maidan.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\cities\Kyiv\Lavra.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\cities\Kyiv\Golden_Gate.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\cities\Lviv\Rynok_Square.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\cities\Lviv\Virmenska.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\cities\Lviv\Stryiskyi_Park.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\cities\Lviv\StOlhaElizabeths.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Images\cities\Lviv\Opera.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="packages\System.ValueTuple.4.6.2\build\net471\System.ValueTuple.targets" Condition="Exists('packages\System.ValueTuple.4.6.2\build\net471\System.ValueTuple.targets')" />

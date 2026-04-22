@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text;
 using System.Text.Json;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -26,24 +27,25 @@ namespace TRAVEL_PLANNER.Services
 
         public static List<Country> LoadCountries()
         {
-            return LoadCountryCollection("countries.json", "countries");
+            return LoadCollection<Country>("countries.json", "countries");
         }
 
-        public static List<Country> LoadCities()
+        public static List<City> LoadCities()
         {
-            return LoadCountryCollection("cities.json", "country");
+            return LoadCollection<City>("cities.json", "cities");
         }
 
-        public static Country GetCitiesCountry(string countryName)
+        public static List<City> GetCitiesForCountry(string countryName)
         {
-            return LoadCountries()
-                .FirstOrDefault(item => item.name.Equals(countryName, StringComparison.CurrentCultureIgnoreCase));
+            var normalizedCountryName = NormalizeText(countryName);
+            return LoadCities()
+                .Where(item => string.Equals(NormalizeText(item.country), normalizedCountryName, StringComparison.CurrentCultureIgnoreCase))
+                .ToList();
         }
 
         public static bool HasCitiesForCountry(string countryName)
         {
-            var country = GetCitiesCountry(countryName);
-            return country != null && country.places.Any();
+            return GetCitiesForCountry(countryName).Any();
         }
 
         public static ImageSource LoadCountryMap(Country country)
@@ -62,22 +64,6 @@ namespace TRAVEL_PLANNER.Services
             return BuildImageSource($"/TRAVEL_PLANNER;component/Resources/Maps/{fileName}");
         }
 
-        public static ImageSource LoadCityImage(City city)
-        {
-            if (city == null)
-            {
-                return null;
-            }
-
-            var fileName = !string.IsNullOrWhiteSpace(city.view) ? city.view : city.View;
-            if (string.IsNullOrWhiteSpace(fileName))
-            {
-                return null;
-            }
-
-            return BuildImageSource($"/TRAVEL_PLANNER;component/Resources/CityViews/{fileName}");
-        }
-
         public static ImageSource LoadPlaceImage(Country country, Place place)
         {
             if (country == null || place == null || string.IsNullOrWhiteSpace(place.image))
@@ -85,7 +71,7 @@ namespace TRAVEL_PLANNER.Services
                 return null;
             }
 
-            if (!CountryFolders.TryGetValue(country.name, out var folder))
+            if (!CountryFolders.TryGetValue(NormalizeText(country.name), out var folder))
             {
                 return null;
             }
@@ -93,18 +79,49 @@ namespace TRAVEL_PLANNER.Services
             return BuildImageSource($"/TRAVEL_PLANNER;component/Resources/Images/countries/{folder}/{place.image}");
         }
 
-        private static List<Country> LoadCountryCollection(string fileName, string rootPropertyName)
+        public static ImageSource LoadCityView(City city)
         {
-            var json = File.ReadAllText(BuildDataPath(fileName));
+            if (city == null || string.IsNullOrWhiteSpace(city.view))
+            {
+                return null;
+            }
+
+            return BuildImageSource($"/TRAVEL_PLANNER;component/Resources/CityViews/{city.view}");
+        }
+
+        public static ImageSource LoadAttractionImage(City city, Attraction attraction)
+        {
+            if (city == null || attraction == null || string.IsNullOrWhiteSpace(city.view) || string.IsNullOrWhiteSpace(attraction.image))
+            {
+                return null;
+            }
+
+            var cityFolder = Path.GetFileNameWithoutExtension(city.view);
+            if (string.IsNullOrWhiteSpace(cityFolder))
+            {
+                return null;
+            }
+
+            return BuildImageSource($"/TRAVEL_PLANNER;component/Resources/Images/cities/{cityFolder}/{attraction.image}");
+        }
+
+        private static List<T> LoadCollection<T>(string fileName, string rootPropertyName)
+        {
+            var json = File.ReadAllText(BuildDataPath(fileName), Encoding.UTF8);
             using (var document = JsonDocument.Parse(json))
             {
                 if (!document.RootElement.TryGetProperty(rootPropertyName, out var rootArray))
                 {
-                    return new List<Country>();
+                    return new List<T>();
                 }
 
-                return JsonSerializer.Deserialize<List<Country>>(rootArray.GetRawText()) ?? new List<Country>();
+                return JsonSerializer.Deserialize<List<T>>(rootArray.GetRawText()) ?? new List<T>();
             }
+        }
+
+        private static string NormalizeText(string text)
+        {
+            return string.IsNullOrWhiteSpace(text) ? string.Empty : text.Trim();
         }
 
         private static string BuildDataPath(string fileName)

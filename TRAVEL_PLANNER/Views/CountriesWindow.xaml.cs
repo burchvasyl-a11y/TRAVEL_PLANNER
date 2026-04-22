@@ -62,13 +62,13 @@ namespace TRAVEL_PLANNER.Views
         {
             if (_selectedCountry == null)
             {
-                MessageBox.Show("Спочатку введіть назву країни на сторінці \"Країни\". Сторінка \"Міста\" поки заблокована без вибраної країни.", "TRAVEL PLANNER");
+                MessageBox.Show("Спочатку введіть назву країни на сторінці \"Країни\". Сторінка \"Міста\" поки заблокована без вибраної країни", "TRAVEL PLANNER");
                 return;
             }
 
             if (!JsonService.HasCitiesForCountry(_selectedCountry.name))
             {
-                MessageBox.Show("Введена країна не має записів у файлі cities.json, тому сторінка \"Міста\" залишається заблокованою.", "TRAVEL PLANNER");
+                MessageBox.Show("Введена країна не має записів у файлі cities.json, тому сторінка \"Міста\" залишається заблокованою", "TRAVEL PLANNER");
                 return;
             }
 
@@ -120,19 +120,19 @@ namespace TRAVEL_PLANNER.Views
         {
             if (!AppState.IsAuthenticated)
             {
-                MessageBox.Show("Незареєстрований користувач не може зберегти подорож. Спочатку увійдіть в акаунт.", "TRAVEL PLANNER");
+                MessageBox.Show("Незареєстрований користувач не може зберегти подорож. Спочатку увійдіть в акаунт", "TRAVEL PLANNER");
                 return;
             }
 
             if (_selectedCountry == null)
             {
-                MessageBox.Show("Введіть країну.", "TRAVEL PLANNER");
+                MessageBox.Show("Введіть країну:", "TRAVEL PLANNER");
                 return;
             }
 
             if (!DatePickerFrom.SelectedDate.HasValue || !DatePickerTo.SelectedDate.HasValue)
             {
-                MessageBox.Show("Оберіть дату початку та завершення подорожі.", "TRAVEL PLANNER");
+                MessageBox.Show("Оберіть дату початку та завершення подорожі:", "TRAVEL PLANNER");
                 return;
             }
 
@@ -167,7 +167,7 @@ namespace TRAVEL_PLANNER.Views
                 SelectedPlaces = selectedPlaces
             });
 
-            MessageBox.Show("Подорож збережено на головній сторінці.", "TRAVEL PLANNER");
+            MessageBox.Show("Подорож збережено на головній сторінці", "TRAVEL PLANNER");
         }
 
         private void SetSelectedCountry(Country country)
@@ -283,7 +283,7 @@ namespace TRAVEL_PLANNER.Views
         private static string BuildCountryInfo(Country country, bool includePlaces = false)
         {
             var baseInfo = string.IsNullOrWhiteSpace(country.info)
-                ? $"{country.name} підходить для гнучкого планування подорожі з акцентом на природу, пам'ятки та цікаві локації."
+                ? ""
                 : country.info;
 
             if (!includePlaces)

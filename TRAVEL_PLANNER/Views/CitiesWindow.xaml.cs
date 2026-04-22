@@ -10,8 +10,8 @@ namespace TRAVEL_PLANNER.Views
 {
     public partial class CitiesWindow : Window
     {
-        private Country _selectedCountry;
-        private List<Place> _availableCities = new List<Place>();
+        private List<City> _availableCities = new List<City>();
+        private City _selectedCity;
 
         public CitiesWindow()
         {
@@ -42,6 +42,7 @@ namespace TRAVEL_PLANNER.Views
 
         private void CityComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            _selectedCity = CityComboBox.SelectedItem as City;
             RefreshSelectedCity();
         }
 
@@ -57,7 +58,7 @@ namespace TRAVEL_PLANNER.Views
 
         private void Filters_Changed(object sender, RoutedEventArgs e)
         {
-            RefreshCityList();
+            RefreshAttractions();
         }
 
         private void SaveButton_Click(object sender, RoutedEventArgs e)
@@ -68,7 +69,7 @@ namespace TRAVEL_PLANNER.Views
                 return;
             }
 
-            if (!(CityComboBox.SelectedItem is Place city))
+            if (_selectedCity == null)
             {
                 MessageBox.Show("Оберіть місто зі списку", "TRAVEL PLANNER");
                 return;
@@ -80,10 +81,22 @@ namespace TRAVEL_PLANNER.Views
                 return;
             }
 
-            var categories = GetSelectedCategories().ToList();
-            if (categories.Count == 0 && !string.IsNullOrWhiteSpace(city.category))
+            var cards = AttractionsItemsControl.ItemsSource as IEnumerable<PlaceCardItem>;
+            var selectedPlaces = cards?
+                .Where(item => item.IsAdded)
+                .Select(item => item.Place)
+                .ToList() ?? new List<string>();
+
+            var categories = cards?
+                .Where(item => item.IsAdded)
+                .Select(item => item.Category)
+                .Where(item => !string.IsNullOrWhiteSpace(item))
+                .Distinct()
+                .ToList() ?? new List<string>();
+
+            if (categories.Count == 0)
             {
-                categories.Add(city.category);
+                categories = GetSelectedCategories().ToList();
             }
 
             if (categories.Count == 0)
@@ -93,11 +106,11 @@ namespace TRAVEL_PLANNER.Views
 
             AppState.SaveTrip(new SavedTrip
             {
-                CountryName = $"{_selectedCountry.name}: {city.place}",
+                CountryName = $"{_selectedCity.country}: {_selectedCity.name}",
                 DateFrom = DatePickerFrom.SelectedDate.Value,
                 DateTo = DatePickerTo.SelectedDate.Value,
                 Categories = categories,
-                SelectedPlaces = new List<string> { city.place }
+                SelectedPlaces = selectedPlaces
             });
 
             MessageBox.Show("Подорож збережено на головній сторінці", "TRAVEL PLANNER");
@@ -112,91 +125,84 @@ namespace TRAVEL_PLANNER.Views
                 return;
             }
 
-            _selectedCountry = JsonService.GetCitiesCountry(AppState.SelectedCountryName);
-            if (_selectedCountry == null || !_selectedCountry.places.Any())
+            _availableCities = JsonService.GetCitiesForCountry(AppState.SelectedCountryName);
+            if (!_availableCities.Any())
             {
-                MessageBox.Show("Для вибраної країни немає записів", "TRAVEL PLANNER");
+                MessageBox.Show("Введена країна не має записів у файлі cities.json, тому сторінка \"Міста\" залишається заблокованою", "TRAVEL PLANNER");
                 NavigationService.Open(this, new CountriesWindow());
                 return;
             }
 
-            CountryNameTextBlock.Text = _selectedCountry.name;
-            _availableCities = _selectedCountry.places.ToList();
-            RefreshCityList();
-        }
-
-        private void RefreshCityList()
-        {
-            var filters = GetSelectedCategories().ToList();
-            var filteredCities = _availableCities
-                .Where(city => filters.Count == 0 || filters.Any(filter => MatchesCategory(filter, city.category)))
-                .ToList();
-
-            CityComboBox.ItemsSource = filteredCities;
-
-            if (filteredCities.Count == 0)
-            {
-                ClearSelectedCity();
-                return;
-            }
-
-            if (!filteredCities.Contains(CityComboBox.SelectedItem as Place))
-            {
-                CityComboBox.SelectedIndex = 0;
-            }
-            else
-            {
-                RefreshSelectedCity();
-            }
+            CountryNameTextBlock.Text = AppState.SelectedCountryName;
+            CityComboBox.ItemsSource = _availableCities;
+            CityComboBox.SelectedIndex = 0;
         }
 
         private void RefreshSelectedCity()
         {
-            if (!(CityComboBox.SelectedItem is Place city))
+            if (_selectedCity == null)
             {
-                ClearSelectedCity();
+                ClearCitySelection();
                 return;
             }
 
-            CityImage.Source = JsonService.LoadCityMap(_selectedCountry);
-            SelectedCityImage.Source = JsonService.LoadPlaceImage(_selectedCountry, city);
-            SelectedCityNameTextBlock.Text = city.place;
-            SelectedCityShortInfoTextBlock.Text = string.IsNullOrWhiteSpace(city.description)
-                ? ""
-                : city.description;
-            SelectedCityCategoryTextBlock.Text = city.category;
-            SelectedCityDescriptionTextBlock.Text = string.IsNullOrWhiteSpace(city.description)
-                ? ""
-                : city.description;
-            TextBox_Info.Text = BuildCityInfo(city);
+            CityViewImage.Source = JsonService.LoadCityView(_selectedCity);
+            SelectedCityNameTextBlock.Text = _selectedCity.name;
+            SelectedCityShortInfoTextBlock.Text = BuildCityShortInfo(_selectedCity);
+            TextBox_Info.Text = BuildCityInfo(_selectedCity);
+            RefreshAttractions();
         }
 
-        private void ClearSelectedCity()
+        private void RefreshAttractions()
         {
-            CityMapImage.Source = JsonService.LoadCountryMap(_selectedCountry);
-            SelectedCityImage.Source = null;
+            if (_selectedCity == null)
+            {
+                AttractionsItemsControl.ItemsSource = null;
+                return;
+            }
+
+            var filters = GetSelectedCategories().ToList();
+            var cards = _selectedCity.attractions
+                .Where(item => filters.Count == 0 || filters.Any(filter => MatchesCategory(filter, item.category)))
+                .Select(item => new PlaceCardItem
+                {
+                    Place = item.attraction,
+                    Category = item.category,
+                    Description = string.IsNullOrWhiteSpace(item.description)
+                        ? ""
+                        : item.description,
+                    ImagePath = item.image,
+                    PreViewImage = JsonService.LoadAttractionImage(_selectedCity, item)
+                })
+                .ToList();
+
+            AttractionsItemsControl.ItemsSource = cards;
+        }
+
+        private void ClearCitySelection()
+        {
+            CityViewImage.Source = null;
             SelectedCityNameTextBlock.Text = string.Empty;
             SelectedCityShortInfoTextBlock.Text = string.Empty;
-            SelectedCityCategoryTextBlock.Text = string.Empty;
-            SelectedCityDescriptionTextBlock.Text = string.Empty;
             TextBox_Info.Text = string.Empty;
+            AttractionsItemsControl.ItemsSource = null;
         }
 
         private IEnumerable<string> GetSelectedCategories()
         {
-            if (CheckBoxSea.IsChecked == true)
+            if (CheckBoxHeart.IsChecked == true)
             {
-                yield return CheckBoxSea.Content.ToString();
+                yield return CheckBoxHeart.Content.ToString();
             }
 
-            if (CheckBoxNature.IsChecked == true)
+            if (CheckBoxPark.IsChecked == true)
             {
-                yield return CheckBoxNature.Content.ToString();
+                yield return CheckBoxPark.Content.ToString();
             }
 
-            if (CheckBoxActivities.IsChecked == true)
+            if (CheckBoxCulture.IsChecked == true)
             {
-                yield return CheckBoxActivities.Content.ToString();
+                yield return CheckBoxCulture.Content.ToString();
             }
 
             if (CheckBoxHistoric.IsChecked == true)
@@ -204,9 +210,14 @@ namespace TRAVEL_PLANNER.Views
                 yield return CheckBoxHistoric.Content.ToString();
             }
 
-            if (CheckBoxShopping.IsChecked == true)
+            if (CheckBoxReligious.IsChecked == true)
             {
-                yield return CheckBoxShopping.Content.ToString();
+                yield return CheckBoxReligious.Content.ToString();
+            }
+
+            if (CheckBoxArchitecture.IsChecked == true)
+            {
+                yield return CheckBoxArchitecture.Content.ToString();
             }
         }
 
@@ -217,21 +228,36 @@ namespace TRAVEL_PLANNER.Views
                 return false;
             }
 
-            if (actualCategory.IndexOf(selectedCategory, StringComparison.CurrentCultureIgnoreCase) >= 0)
-            {
-                return true;
-            }
-
-                       return false;
+            return actualCategory.IndexOf(selectedCategory, StringComparison.CurrentCultureIgnoreCase) >= 0;
         }
 
-        private static string BuildCityInfo(Place city)
+        private static string BuildCityShortInfo(City city)
         {
-            var description = string.IsNullOrWhiteSpace(city.description)
-                ? ""
-                : city.description;
+            if (!string.IsNullOrWhiteSpace(city.info))
+            {
+                return city.info;
+            }
 
-            return $"Місто: {city.place}\nКатегорія: {city.category}\n\n{description}";
+            var attractions = city.attractions
+                .Take(3)
+                .Select(item => item.attraction)
+                .ToList();
+
+            return $"Рекомендовані місця для знайомства з містом: {string.Join(", ", attractions)}";
+        }
+
+        private static string BuildCityInfo(City city)
+        {
+            var baseInfo = string.IsNullOrWhiteSpace(city.info)
+                ? ""
+                : city.info;
+
+            var attractions = city.attractions
+                .Take(4)
+                .Select(item => item.attraction)
+                .ToList();
+
+            return $"{baseInfo}{Environment.NewLine}{Environment.NewLine}Рекомендовані місця для старту маршруту: {string.Join(", ", attractions)}";
         }
     }
 }

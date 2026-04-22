@@ -9,97 +9,96 @@
         WindowStartupLocation="CenterScreen"
         Style="{StaticResource BaseWindowStyle}">
     <Border Background="{DynamicResource PageOverlayBrush}">
-    <DockPanel>
-        <Border DockPanel.Dock="Top"
+        <DockPanel>
+            <Border DockPanel.Dock="Top"
                 Background="{StaticResource PrimaryBrush}"
                 Padding="24,16">
-            <Grid>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="*"/>
-                </Grid.ColumnDefinitions>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
 
-                <TextBlock Text="TRAVEL PLANNER"
+                    <TextBlock Text="TRAVEL PLANNER"
                            FontSize="22"
                            FontWeight="Bold"
                            Foreground="White"
                            VerticalAlignment="Center"/>
 
-                <StackPanel Grid.Column="1"
+                    <StackPanel Grid.Column="1"
                             Orientation="Horizontal"
                             HorizontalAlignment="Center">
-                    <Button Content="Головна"
+                        <Button Content="Головна"
                             Style="{StaticResource NavButtonStyle}"
                             Click="Main_Click"/>
-                    <Button Content="Країни"
+                        <Button Content="Країни"
                             Style="{StaticResource NavButtonStyle}"
                             Click="Countries_Click"/>
-                    <Button Content="Міста"
+                        <Button Content="Міста"
                             Style="{StaticResource NavButtonStyle}"
                             Click="Cities_Click"/>
-                    <Button Content="Налаштування"
+                        <Button Content="Налаштування"
                             Style="{StaticResource NavButtonStyle}"
                             FontWeight="Bold"
                             Click="Settings_Click"/>
-                </StackPanel>
-            </Grid>
-        </Border>
+                    </StackPanel>
+                </Grid>
+            </Border>
 
-        <Grid Margin="36">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="1.1*"/>
-                <ColumnDefinition Width="0.9*"/>
-            </Grid.ColumnDefinitions>
+            <Grid Margin="36">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1.1*"/>
+                    <ColumnDefinition Width="0.9*"/>
+                </Grid.ColumnDefinitions>
 
-            <Border Style="{StaticResource CardBorderStyle}">
-                <StackPanel>
-                    <TextBlock Text="Налаштування"
+                <Border Style="{StaticResource CardBorderStyle}">
+                    <StackPanel>
+                        <TextBlock Text="Налаштування"
                                Style="{StaticResource TitleTextStyle}"
                                FontSize="32"/>
-                    <TextBlock Text="Оберіть тему інтерфейсу та керуйте авторизацією."
+                        <TextBlock Text="Оберіть тему інтерфейсу та керуйте авторизацією."
                                Style="{StaticResource SubtitleTextStyle}"
                                Margin="0,12,0,0"/>
 
-                    <TextBlock Margin="0,28,0,0"
+                        <TextBlock Margin="0,28,0,0"
                                FontWeight="SemiBold"
                                Text="Тема"/>
-                    <RadioButton x:Name="LightThemeRadio"
+                        <RadioButton x:Name="LightThemeRadio"
                                  Margin="0,14,0,0"
                                  Content="Світла тема"
                                  GroupName="ThemeGroup"/>
-                    <RadioButton x:Name="DarkThemeRadio"
+                        <RadioButton x:Name="DarkThemeRadio"
                                  Margin="0,12,0,0"
                                  Content="Темна тема"
                                  GroupName="ThemeGroup"/>
 
-                    <Button Margin="0,28,0,0"
+                        <Button Margin="0,28,0,0"
                             Height="46"
                             Style="{StaticResource PrimaryButtonStyle}"
                             Click="ApplyTheme_Click"
-                            Content="Застосувати тему"/>
-                </StackPanel>
-            </Border>
+                            Content="Застосувати тMargin="20,0,0,16"        </StackPanel>
+                </Border>
 
-            <Border Grid.Column="1"
-                    Margin="20,0,0,0"
-                    Style="{StaticResource CardBorderStyle}">
-                <StackPanel>
+                <Border Grid.Column="1"
+  
                     <TextBlock Text="Профіль"
                                Style="{StaticResource TitleTextStyle}"
-                               FontSize="28"/>
-                    <TextBlock x:Name="CurrentUserText"
+                               FontSize="28"/>                  Margin="20,0,0,433"
+                    Style="{StaticResource CardBorderStyle}">
+                    <StackPanel>
+                        <TextBlock x:Name="CurrentUserText"
                                Margin="0,16,0,0"
                                FontSize="16"
                                TextWrapping="Wrap"/>
 
-                    <Button Margin="0,28,0,0"
+                        <Button Margin="0,28,0,0"
                             Height="46"
-                            Style="{StaticResource SecondaryButtonStyle}"
-                            Click="SignOut_Click"
-                            Content="Вийти з акаунта"/>
-                </StackPanel>
-            </Border>
-        </Grid>
-    </DockPanel>
+                            Style="{Sta <TextBlock Text="Профіль"
+                               Style="{StaticResource TitleTextStyle}"
+                               FontSize="28"/>
+                    </StackPanel>
+                </Border>
+            </Grid>
+        </DockPanel>
     </Border>
 </Window>
