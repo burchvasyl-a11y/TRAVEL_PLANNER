@@ -48,7 +48,7 @@ namespace TRAVEL_PLANNER.Views
             DarkThemeRadio.IsChecked = AppState.IsDarkTheme;
             CurrentUserText.Text = AppState.IsAuthenticated
                 ? $"Ви увійшли як: {AppState.UserEmail}"
-                : "Користувач не авторизований. Можна повернутися на сторінку входу.";
+                : "Користувач не авторизований.";
         }
     }
 }

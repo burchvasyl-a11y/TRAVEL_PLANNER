@@ -219,6 +219,11 @@ namespace TRAVEL_PLANNER.Views
             {
                 yield return CheckBoxArchitecture.Content.ToString();
             }
+
+            if (CheckBoxShopping.IsChecked == true)
+            {
+                yield return CheckBoxShopping.Content.ToString();
+            }
         }
 
         private static bool MatchesCategory(string selectedCategory, string actualCategory)

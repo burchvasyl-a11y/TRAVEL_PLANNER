@@ -122,11 +122,6 @@
                                       Content="Історичні пам'ятки"
                                       Checked="Filters_Changed"
                                       Unchecked="Filters_Changed"/>
-                                <CheckBox x:Name="CheckBoxShopping"
-                                      Style="{StaticResource CheckBoxStyle}"
-                                      Content="Шоп-тур + гастрономія"
-                                      Checked="Filters_Changed"
-                                      Unchecked="Filters_Changed"/>
 
                                 <TextBlock Margin="0,22,0,0"
                                        FontWeight="SemiBold"

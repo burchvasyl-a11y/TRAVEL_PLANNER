@@ -246,11 +246,6 @@ namespace TRAVEL_PLANNER.Views
             {
                 yield return CheckBoxHistoric.Content.ToString();
             }
-
-            if (CheckBoxShopping.IsChecked == true)
-            {
-                yield return CheckBoxShopping.Content.ToString();
-            }
         }
 
         private static bool MatchesCategory(string selectedCategory, string actualCategory)
@@ -264,19 +259,7 @@ namespace TRAVEL_PLANNER.Views
             {
                 return true;
             }
-
-            if (selectedCategory == "Відпочинок на морі" &&
-                actualCategory.IndexOf("Відпочинок", StringComparison.CurrentCultureIgnoreCase) >= 0)
-            {
-                return true;
-            }
-
-            if (selectedCategory == "Відпочинок на природі" &&
-                actualCategory.IndexOf("Відпочинок", StringComparison.CurrentCultureIgnoreCase) >= 0)
-            {
-                return true;
-            }
-
+         
             return false;
         }
 

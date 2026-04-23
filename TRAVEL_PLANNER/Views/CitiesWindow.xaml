@@ -108,7 +108,7 @@
                                            Text="Вид подорожі"/>
                                 <CheckBox x:Name="CheckBoxHeart"
                                           Style="{StaticResource CheckBoxStyle}"
-                                          Content="Серце міста"
+                                          Content="💓Серце міста"
                                           Checked="Filters_Changed"
                                           Unchecked="Filters_Changed"/>
                                 <CheckBox x:Name="CheckBoxPark"
@@ -134,6 +134,11 @@
                                 <CheckBox x:Name="CheckBoxArchitecture"
                                           Style="{StaticResource CheckBoxStyle}"
                                           Content="Пам'ятка архітектури"
+                                          Checked="Filters_Changed"
+                                          Unchecked="Filters_Changed"/>
+                                <CheckBox x:Name="CheckBoxShopping"
+                                          Style="{StaticResource CheckBoxStyle}"
+                                          Content="Шоп-тур + гастрономія"
                                           Checked="Filters_Changed"
                                           Unchecked="Filters_Changed"/>
 

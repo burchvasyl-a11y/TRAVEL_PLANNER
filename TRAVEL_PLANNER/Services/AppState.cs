@@ -16,16 +16,50 @@ namespace TRAVEL_PLANNER.Services
 
         public static List<SavedTrip> SavedTrips { get; } = new List<SavedTrip>();
 
-        public static void SignIn(string email)
+        public static void Initialize()
         {
-            IsAuthenticated = true;
-            UserEmail = email;
+            AuthService.EnsureStorage();
+
+            var restoredUser = AuthService.RestoreSession();
+            if (string.IsNullOrWhiteSpace(restoredUser))
+            {
+                IsAuthenticated = false;
+                UserEmail = null;
+                SavedTrips.Clear();
+                return;
+            }
+
+            ApplyAuthenticatedUser(restoredUser);
+        }
+
+        public static bool TryRegister(string email, string password, out string errorMessage)
+        {
+            if (!AuthService.TryRegister(email, password, out errorMessage))
+            {
+                return false;
+            }
+
+            ApplyAuthenticatedUser(email);
+            return true;
+        }
+
+        public static bool TrySignIn(string email, string password, out string errorMessage)
+        {
+            if (!AuthService.TrySignIn(email, password, out errorMessage))
+            {
+                return false;
+            }
+
+            ApplyAuthenticatedUser(email);
+            return true;
         }
 
         public static void SignOut()
         {
+            AuthService.SignOut();
             IsAuthenticated = false;
             UserEmail = null;
+            SavedTrips.Clear();
         }
 
         public static void SetTheme(bool isDarkTheme)
@@ -54,10 +88,31 @@ namespace TRAVEL_PLANNER.Services
             {
                 existingTrip.Categories = trip.Categories;
                 existingTrip.SelectedPlaces = trip.SelectedPlaces;
+            }
+            else
+            {
+                SavedTrips.Add(trip);
+            }
+
+            PersistTrips();
+        }
+
+        private static void ApplyAuthenticatedUser(string email)
+        {
+            IsAuthenticated = true;
+            UserEmail = email?.Trim().ToLowerInvariant();
+            SavedTrips.Clear();
+            SavedTrips.AddRange(AuthService.LoadTrips(UserEmail));
+        }
+
+        private static void PersistTrips()
+        {
+            if (!IsAuthenticated || string.IsNullOrWhiteSpace(UserEmail))
+            {
                 return;
             }
 
-            SavedTrips.Add(trip);
+            AuthService.SaveTrips(UserEmail, SavedTrips);
         }
     }
 }

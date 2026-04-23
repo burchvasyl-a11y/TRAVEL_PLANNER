@@ -117,6 +117,48 @@
           "description": null,
           "image": "Carrier.jpg",
           "category": "Парки та сквери"
+        },
+        {
+          "attraction": "Кондитерська Штефаньо",
+          "description": null,
+          "image": "Stefanyo.jpg",
+          "category": "Шоп-тур + гастрономія"
+        },
+        {
+          "attraction": "Липова Алея",
+          "description": null,
+          "image": "Lypova.jpg",
+          "category": "Парки та сквери"
+        },
+        {
+          "attraction": "Малий Галагов",
+          "description": null,
+          "image": "Halahov.jpg",
+          "category": "Культурна спадщина"
+        },
+        {
+          "attraction": "Площа Шандора Петефі",
+          "description": null,
+          "image": "Petefi_Square.jpg",
+          "category": "💓Серце міста"
+        },
+        {
+          "attraction": "Ботанічний сад УжНУ",
+          "description": null,
+          "image": "Botanical_UzhNU.jpg",
+          "category": "Парки та сквери"
+        },
+        {
+          "attraction": "Боздоський парк",
+          "description": null,
+          "image": "Bozdos.jpg",
+          "category": "Парки та сквери"
+        },
+        {
+          "attraction": "Студентський парк",
+          "description": null,
+          "image": "Studentskyi.jpeg",
+          "category": "Парки та сквери"
         }
       ]
     },

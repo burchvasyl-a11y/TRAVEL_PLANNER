@@ -32,7 +32,7 @@ namespace TRAVEL_PLANNER.Views
             NavigationService.Open(this, new SettingsWindow());
         }
 
-        private void TogglePassword_Click(object sender, RoutedEventArgs e)
+        private void TogglePassword_Click(object sender, MouseButtonEventArgs e)
         {
             _isPasswordVisible = !_isPasswordVisible;
 
@@ -52,35 +52,51 @@ namespace TRAVEL_PLANNER.Views
 
         private void ForgotPassword_Click(object sender, MouseButtonEventArgs e)
         {
-            MessageBox.Show("У цьому макеті відновлення пароля ще не реалізоване.", "Підказка");
+            MessageBox.Show("Відновлення пароля поки не реалізоване", "TRAVEL PLANNER");
         }
 
         private void LoginButton_Click(object sender, RoutedEventArgs e)
         {
-            SignIn(EmailTextBox.Text);
+            var email = EmailTextBox.Text;
+            var password = GetPassword();
+
+            if (!AppState.TrySignIn(email, password, out var errorMessage))
+            {
+                MessageBox.Show(errorMessage, "TRAVEL PLANNER");
+                return;
+            }
+
+            NavigationService.Open(this, new MainWindow());
+        }
+
+        private void RegisterButton_Click(object sender, RoutedEventArgs e)
+        {
+            var email = EmailTextBox.Text;
+            var password = GetPassword();
+
+            if (!AppState.TryRegister(email, password, out var errorMessage))
+            {
+                MessageBox.Show(errorMessage, "TRAVEL PLANNER");
+                return;
+            }
+
+            MessageBox.Show("Акаунт створено. Ви вже увійшли в систему", "TRAVEL PLANNER");
+            NavigationService.Open(this, new MainWindow());
         }
 
         private void GoogleButton_Click(object sender, RoutedEventArgs e)
         {
-            SignIn("google.user@travelplanner.app");
+            MessageBox.Show("Вхід через Google поки не реалізований", "TRAVEL PLANNER");
         }
 
         private void GitHubButton_Click(object sender, RoutedEventArgs e)
         {
-            SignIn("github.user@travelplanner.app");
+            MessageBox.Show("Вхід через GitHub поки не реалізований", "TRAVEL PLANNER");
         }
 
-        private void SignIn(string email)
+        private string GetPassword()
         {
-            var password = _isPasswordVisible ? PasswordTextBox.Text : PasswordBox.Password;
-            if (string.IsNullOrWhiteSpace(email) || string.IsNullOrWhiteSpace(password))
-            {
-                MessageBox.Show("Введіть ел. пошту та пароль, щоб перейти на головну сторінку.", "TRAVEL PLANNER");
-                return;
-            }
-
-            AppState.SignIn(email.Trim());
-            NavigationService.Open(this, new MainWindow());
+            return _isPasswordVisible ? PasswordTextBox.Text : PasswordBox.Password;
         }
     }
 }
